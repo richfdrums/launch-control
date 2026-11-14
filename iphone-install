@@ -1,0 +1,66 @@
+#!/bin/sh
+# Builds Launch Mode for a physical iPhone and installs + launches it there. Run it again every
+# 7 days while the app is signed with the free Personal Team.
+#
+# Usage: ./iphone-install [device name or identifier]
+#   With no argument, uses the one paired physical iPhone (errors if there are zero or several).
+#   The iPhone must be unlocked and reachable (same Wi-Fi once paired with Xcode, or plugged in).
+#   Signing comes from Local.xcconfig (see README.md).
+set -e
+cd "$(dirname "$0")"
+
+# In a worktree, the signing details (Local.xcconfig, not committed) are only in the main
+# checkout: link them from there.
+MAIN="$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")"
+f=Local.xcconfig
+if [ ! -e "$f" ] && [ -f "$MAIN/$f" ] && [ "$MAIN" != "$(pwd -P)" ]; then
+  ln -s "$MAIN/$f" "$f"
+  echo "Linked $f from $MAIN"
+fi
+
+PROJECT="LaunchMode.xcodeproj"
+SCHEME="LaunchMode"
+DEVICE_TYPE="iPhone"
+DERIVED="build"
+
+# Pick the physical device (by name/identifier if given).
+DEVICES_JSON="$(mktemp)"
+trap 'rm -f "$DEVICES_JSON"' EXIT
+xcrun devicectl list devices --json-output "$DEVICES_JSON" >/dev/null
+DEVICE="$(python3 -I - "$DEVICES_JSON" "$DEVICE_TYPE" "$1" <<'PY'
+import json, sys
+path, kind, want = sys.argv[1], sys.argv[2], sys.argv[3]
+found = []
+for d in json.load(open(path))["result"]["devices"]:
+    hw, props = d.get("hardwareProperties", {}), d.get("deviceProperties", {})
+    if hw.get("reality") != "physical" or hw.get("deviceType") != kind:
+        continue
+    ident = d["identifier"]
+    name = props.get("name", "")
+    if not want or want in (ident, name, hw.get("udid")):
+        found.append((ident, name))
+if len(found) != 1:
+    sys.exit("Expected exactly one matching physical %s, found %d: %s" % (kind, len(found), found))
+print(found[0][0])
+PY
+)"
+echo "Target $DEVICE_TYPE: $DEVICE"
+
+xcodebuild \
+  -project "$PROJECT" \
+  -scheme "$SCHEME" \
+  -configuration Debug \
+  -destination "id=$DEVICE" \
+  -derivedDataPath "$DERIVED" \
+  -allowProvisioningUpdates \
+  build
+
+# The bundle id comes from Local.xcconfig's prefix, so ask the build for it and for the app.
+SETTINGS="$(xcodebuild -project "$PROJECT" -scheme "$SCHEME" -configuration Debug \
+  -destination "id=$DEVICE" -derivedDataPath "$DERIVED" -showBuildSettings 2>/dev/null)"
+setting() { printf '%s\n' "$SETTINGS" | sed -n "s/^ *$1 = //p" | head -1; }
+BUNDLE_ID="$(setting PRODUCT_BUNDLE_IDENTIFIER)"
+APP="$(setting TARGET_BUILD_DIR)/$(setting WRAPPER_NAME)"
+
+xcrun devicectl device install app --device "$DEVICE" "$APP"
+xcrun devicectl device process launch --device "$DEVICE" "$BUNDLE_ID"

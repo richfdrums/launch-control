@@ -1,4 +1,4 @@
-"""Draws the app's icons: one per theme, in LaunchMode/Assets.xcassets.
+"""Draws the app's icons: one per theme, in LaunchControl/Assets.xcassets.
 
 Each is a speedometer in the theme's colours, its needle on 60: a flat 1024-point square that
 iOS rounds itself. Outrun's is the app's icon (AppIcon); the others are alternate icons
@@ -14,7 +14,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter
 
-OUT = Path(__file__).parent / "LaunchMode" / "Assets.xcassets"
+OUT = Path(__file__).parent / "LaunchControl" / "Assets.xcassets"
 PRIMARY = "outrun"
 SIZE = 2048  # drawn at twice the size, then scaled down to smooth the edges
 

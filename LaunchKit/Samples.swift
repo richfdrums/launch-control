@@ -2,7 +2,7 @@ import Foundation
 import simd
 
 // LaunchKit: the timing maths, free of the UI and the sensors' frameworks so the unit tests can
-// compile it on its own. The app and LaunchModeTests both build this folder.
+// compile it on its own. The app and LaunchControlTests both build this folder.
 
 enum Units {
     static let mph = 0.44704  // m/s in 1 mph

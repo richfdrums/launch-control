@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct LaunchModeApp: App {
+struct LaunchControlApp: App {
     @State private var location: Location
     @State private var history: History
     @State private var run: RunController

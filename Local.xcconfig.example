@@ -1,6 +1,6 @@
 // Copy to Local.xcconfig (git-ignored) and fill in.
 // Your Team ID: Xcode > Settings > Accounts, select your Apple ID, the team's ID is shown there
 // (with a free account it's your "Personal Team").
-LAUNCHMODE_TEAM = ABCDE12345
+LAUNCHCONTROL_TEAM = ABCDE12345
 // A bundle id is unique to one Apple account, so each person needs their own prefix.
-BUNDLE_ID_PREFIX = com.yourname.launchmode
+BUNDLE_ID_PREFIX = com.yourname.launchcontrol

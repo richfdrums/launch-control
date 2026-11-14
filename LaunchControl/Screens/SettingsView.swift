@@ -25,7 +25,7 @@ struct SettingsView: View {
                 }
                 .font(.subheadline)
                 Section("Run data") {
-                    Text("Each run's raw GPS and motion data is in the Files app: On My iPhone → Launch Mode → Runs.")
+                    Text("Each run's raw GPS and motion data is in the Files app: On My iPhone → Launch Control → Runs.")
                         .font(.subheadline)
                 }
             }

@@ -1,12 +1,12 @@
 // The unit tests' settings. They compile LaunchKit (the timing maths) themselves, so they need
 // no app to host them.
-BUNDLE_ID_PREFIX = local.launchmode
-LAUNCHMODE_TEAM =
+BUNDLE_ID_PREFIX = local.launchcontrol
+LAUNCHCONTROL_TEAM =
 #include? "Local.xcconfig"
 
 PRODUCT_NAME = $(TARGET_NAME)
 PRODUCT_BUNDLE_IDENTIFIER = $(BUNDLE_ID_PREFIX).tests
-DEVELOPMENT_TEAM = $(LAUNCHMODE_TEAM)
+DEVELOPMENT_TEAM = $(LAUNCHCONTROL_TEAM)
 CODE_SIGN_STYLE = Automatic
 GENERATE_INFOPLIST_FILE = YES
 

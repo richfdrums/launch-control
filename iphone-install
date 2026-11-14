@@ -1,5 +1,5 @@
 #!/bin/sh
-# Builds Launch Mode for a physical iPhone and installs + launches it there. Run it again every
+# Builds Launch Control for a physical iPhone and installs + launches it there. Run it again every
 # 7 days while the app is signed with the free Personal Team.
 #
 # Usage: ./iphone-install [device name or identifier]
@@ -18,8 +18,8 @@ if [ ! -e "$f" ] && [ -f "$MAIN/$f" ] && [ "$MAIN" != "$(pwd -P)" ]; then
   echo "Linked $f from $MAIN"
 fi
 
-PROJECT="LaunchMode.xcodeproj"
-SCHEME="LaunchMode"
+PROJECT="LaunchControl.xcodeproj"
+SCHEME="LaunchControl"
 DEVICE_TYPE="iPhone"
 DERIVED="build"
 

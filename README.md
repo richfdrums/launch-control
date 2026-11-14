@@ -1,4 +1,4 @@
-# Launch Mode
+# Launch Control
 
 An iPhone GPS speedometer and hands-free 0–60 timer, built for a 2020 Mazda MX-5 RF. See `PLAN.md` for the design and build order.
 
@@ -30,7 +30,7 @@ The app's icon follows the theme:
 
 - **Speed:** the GPS speed in mph. The bars at top left show how good the GPS signal is. **HUD** flips the speed for the windshield to reflect: lay the phone flat on the dash, top edge toward the glass, and tap to leave.
 - **0–60:** mount the phone firmly, upright and facing you. Stop, tap **Arm**, and hold still until it says **Ready**. Then launch: the timer starts at the first movement and stops at 60 on its own. You also get the time with a 1-ft rollout (how magazines time it), 0–30 and peak g.
-- **Runs** lists every timed run, your best starred. Swipe to delete; press and hold to share a run's raw data. The raw data is also in the Files app: On My iPhone → Launch Mode → Runs.
+- **Runs** lists every timed run, your best starred. Swipe to delete; press and hold to share a run's raw data. The raw data is also in the Files app: On My iPhone → Launch Control → Runs.
 - **Settings** (the gear): the theme, and whether it speaks.
 
 Only time runs on a track or a closed road.
@@ -38,14 +38,14 @@ Only time runs on a track or a closed road.
 ## Building without a device
 
 ```bash
-xcodebuild -project LaunchMode.xcodeproj -scheme LaunchMode -sdk iphonesimulator \
+xcodebuild -project LaunchControl.xcodeproj -scheme LaunchControl -sdk iphonesimulator \
   -destination 'generic/platform=iOS Simulator' build
 ```
 
 The timing maths (`LaunchKit/`) has unit tests that run made-up launches through it:
 
 ```bash
-xcodebuild test -project LaunchMode.xcodeproj -scheme LaunchMode \
+xcodebuild test -project LaunchControl.xcodeproj -scheme LaunchControl \
   -destination 'platform=iOS Simulator,name=iPhone 17'
 ```
 

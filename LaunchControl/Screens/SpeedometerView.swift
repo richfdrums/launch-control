@@ -19,7 +19,7 @@ struct SpeedometerView: View {
             }
             Spacer(minLength: 0)
             if location.denied {
-                Text("Location is off for Launch Mode. Turn it on in Settings → Privacy & Security → Location Services.")
+                Text("Location is off for Launch Control. Turn it on in Settings → Privacy & Security → Location Services.")
                     .font(.footnote).foregroundStyle(p.text).multilineTextAlignment(.center).padding(.horizontal, 32)
             }
             Button(action: showHUD) {

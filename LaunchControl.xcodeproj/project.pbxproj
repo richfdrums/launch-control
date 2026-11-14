@@ -1,0 +1,273 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXFileReference section */
+		C1000000000000000000000A /* LaunchControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaunchControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1000000000000000000000B /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		C1000000000000000000000C /* LaunchControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaunchControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1000000000000000000000D /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C10000000000000000000010 /* LaunchControl */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LaunchControl;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000011 /* LaunchKit */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LaunchKit;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000012 /* LaunchControlTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LaunchControlTests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C10000000000000000000020 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C10000000000000000000025 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C10000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				C10000000000000000000010 /* LaunchControl */,
+				C10000000000000000000011 /* LaunchKit */,
+				C10000000000000000000012 /* LaunchControlTests */,
+				C1000000000000000000000B /* Base.xcconfig */,
+				C1000000000000000000000D /* Tests.xcconfig */,
+				C10000000000000000000002 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C10000000000000000000002 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1000000000000000000000A /* LaunchControl.app */,
+				C1000000000000000000000C /* LaunchControlTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C10000000000000000000030 /* LaunchControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C10000000000000000000051 /* Build configuration list for PBXNativeTarget "LaunchControl" */;
+			buildPhases = (
+				C10000000000000000000021 /* Sources */,
+				C10000000000000000000020 /* Frameworks */,
+				C10000000000000000000022 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C10000000000000000000010 /* LaunchControl */,
+				C10000000000000000000011 /* LaunchKit */,
+			);
+			name = LaunchControl;
+			productName = LaunchControl;
+			productReference = C1000000000000000000000A /* LaunchControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C10000000000000000000031 /* LaunchControlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C10000000000000000000052 /* Build configuration list for PBXNativeTarget "LaunchControlTests" */;
+			buildPhases = (
+				C10000000000000000000024 /* Sources */,
+				C10000000000000000000025 /* Frameworks */,
+				C10000000000000000000026 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C10000000000000000000011 /* LaunchKit */,
+				C10000000000000000000012 /* LaunchControlTests */,
+			);
+			name = LaunchControlTests;
+			productName = LaunchControlTests;
+			productReference = C1000000000000000000000C /* LaunchControlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C10000000000000000000040 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+			};
+			buildConfigurationList = C10000000000000000000050 /* Build configuration list for PBXProject "LaunchControl" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C10000000000000000000001;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = C10000000000000000000002 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C10000000000000000000030 /* LaunchControl */,
+				C10000000000000000000031 /* LaunchControlTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C10000000000000000000022 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C10000000000000000000026 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C10000000000000000000021 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C10000000000000000000024 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C10000000000000000000060 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C10000000000000000000061 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C10000000000000000000062 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1000000000000000000000B /* Base.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		C10000000000000000000063 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1000000000000000000000B /* Base.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		C10000000000000000000064 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1000000000000000000000D /* Tests.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		C10000000000000000000065 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1000000000000000000000D /* Tests.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C10000000000000000000050 /* Build configuration list for PBXProject "LaunchControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C10000000000000000000060 /* Debug */,
+				C10000000000000000000061 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C10000000000000000000051 /* Build configuration list for PBXNativeTarget "LaunchControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C10000000000000000000062 /* Debug */,
+				C10000000000000000000063 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C10000000000000000000052 /* Build configuration list for PBXNativeTarget "LaunchControlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C10000000000000000000064 /* Debug */,
+				C10000000000000000000065 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C10000000000000000000040 /* Project object */;
+}

@@ -1,4 +1,4 @@
-# Launch Mode — Plan
+# Launch Control — Plan
 
 An iPhone app for a 2020 Mazda MX-5 RF: a big, good-looking GPS speedometer and a hands-free 0–60 timer.
 

@@ -38,6 +38,7 @@ struct RootView: View {
     @State private var mode = Mode.speed
     @State private var showSettings = false
     @State private var showHUD = false
+    @State private var card = LiveCard()
 
     var body: some View {
         ZStack {
@@ -58,13 +59,17 @@ struct RootView: View {
         .onAppear { UIApplication.shared.isIdleTimerDisabled = true }
         .onChange(of: scenePhase, initial: true) { _, phase in
             switch phase {
-            case .active: location.start()
+            case .active:
+                location.start()
+                card.start()
             case .background:
                 location.stop()
                 run.cancel()
+                card.end()
             default: break
             }
         }
+        .onChange(of: location.fix) { card.update(mph: location.mph) }
     }
 }
 

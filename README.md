@@ -18,7 +18,7 @@ The app's icon follows the theme:
 
 - A Mac with Xcode.
 - An Apple ID signed in to Xcode (**Xcode → Settings → Accounts**). A free one works, but the app then stops opening after 7 days and has to be installed again.
-- iOS 17 or later.
+- iOS 26 or later.
 
 ## Install it on your iPhone
 

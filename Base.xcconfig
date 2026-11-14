@@ -17,7 +17,7 @@ SUPPORTED_PLATFORMS = iphoneos iphonesimulator
 SUPPORTS_MACCATALYST = NO
 SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO
 TARGETED_DEVICE_FAMILY = 1
-IPHONEOS_DEPLOYMENT_TARGET = 17.0
+IPHONEOS_DEPLOYMENT_TARGET = 26.0
 SWIFT_VERSION = 5.0
 SWIFT_EMIT_LOC_STRINGS = NO
 
@@ -30,6 +30,8 @@ INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPo
 INFOPLIST_KEY_UIStatusBarHidden = YES
 INFOPLIST_KEY_UIUserInterfaceStyle = Dark
 INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Launch Control uses GPS to show your speed and time your runs.
+// The Live Activity (LiveCard) that puts the speed on the CarPlay Dashboard.
+INFOPLIST_KEY_NSSupportsLiveActivities = YES
 // With Info.plist's UIFileSharingEnabled, the Files app shows Documents, where each run's raw
 // data is kept (RunLogs).
 INFOPLIST_FILE = Info.plist

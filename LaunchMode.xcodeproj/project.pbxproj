@@ -9,6 +9,8 @@
 /* Begin PBXFileReference section */
 		C1000000000000000000000A /* LaunchMode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LaunchMode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1000000000000000000000B /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		C1000000000000000000000C /* LaunchModeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LaunchModeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1000000000000000000000D /* Tests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Tests.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -17,10 +19,27 @@
 			path = LaunchMode;
 			sourceTree = "<group>";
 		};
+		C10000000000000000000011 /* LaunchKit */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LaunchKit;
+			sourceTree = "<group>";
+		};
+		C10000000000000000000012 /* LaunchModeTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LaunchModeTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C10000000000000000000020 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C10000000000000000000025 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -34,7 +53,10 @@
 			isa = PBXGroup;
 			children = (
 				C10000000000000000000010 /* LaunchMode */,
+				C10000000000000000000011 /* LaunchKit */,
+				C10000000000000000000012 /* LaunchModeTests */,
 				C1000000000000000000000B /* Base.xcconfig */,
+				C1000000000000000000000D /* Tests.xcconfig */,
 				C10000000000000000000002 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				C1000000000000000000000A /* LaunchMode.app */,
+				C1000000000000000000000C /* LaunchModeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,11 +87,33 @@
 			);
 			fileSystemSynchronizedGroups = (
 				C10000000000000000000010 /* LaunchMode */,
+				C10000000000000000000011 /* LaunchKit */,
 			);
 			name = LaunchMode;
 			productName = LaunchMode;
 			productReference = C1000000000000000000000A /* LaunchMode.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C10000000000000000000031 /* LaunchModeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C10000000000000000000052 /* Build configuration list for PBXNativeTarget "LaunchModeTests" */;
+			buildPhases = (
+				C10000000000000000000024 /* Sources */,
+				C10000000000000000000025 /* Frameworks */,
+				C10000000000000000000026 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C10000000000000000000011 /* LaunchKit */,
+				C10000000000000000000012 /* LaunchModeTests */,
+			);
+			name = LaunchModeTests;
+			productName = LaunchModeTests;
+			productReference = C1000000000000000000000C /* LaunchModeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,6 +140,7 @@
 			projectRoot = "";
 			targets = (
 				C10000000000000000000030 /* LaunchMode */,
+				C10000000000000000000031 /* LaunchModeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -107,10 +153,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C10000000000000000000026 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C10000000000000000000021 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C10000000000000000000024 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -163,6 +223,20 @@
 			};
 			name = Release;
 		};
+		C10000000000000000000064 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1000000000000000000000D /* Tests.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		C10000000000000000000065 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1000000000000000000000D /* Tests.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -180,6 +254,15 @@
 			buildConfigurations = (
 				C10000000000000000000062 /* Debug */,
 				C10000000000000000000063 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C10000000000000000000052 /* Build configuration list for PBXNativeTarget "LaunchModeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C10000000000000000000064 /* Debug */,
+				C10000000000000000000065 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

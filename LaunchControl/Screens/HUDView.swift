@@ -24,8 +24,8 @@ struct HUDView: View {
                 Readout(text: speedText(location.mph))
                     .containerRelativeFrame(.horizontal) { w, _ in (w - 32) / 3 }
                     .frame(maxHeight: 140)
-                Text("MPH").font(p.font(40)).tracking(8).foregroundStyle(p.dim)
-                Text(headingText(location.course)).font(p.font(28)).tracking(4).foregroundStyle(p.dim)
+                Text("MPH").font(p.font(14)).tracking(8).foregroundStyle(p.dim)
+                Text(headingText(location.course)).font(p.font(20)).tracking(4).foregroundStyle(p.dim)
                     .monospacedDigit().padding(.top, 12)
             }
             .padding()

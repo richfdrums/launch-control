@@ -4,13 +4,14 @@ struct SettingsView: View {
     @Environment(ThemeStore.self) private var themes
     @Environment(\.dismiss) private var dismiss
     @AppStorage("voice") private var voice = true
+    @State private var preview: ThemeID?
 
     var body: some View {
         NavigationStack {
             List {
                 Section("Theme") {
                     ForEach(ThemeID.allCases) { id in
-                        Button { themes.set(id) } label: { themeRow(id) }
+                        Button { preview = id } label: { themeRow(id) }
                     }
                 }
                 Section {
@@ -34,6 +35,14 @@ struct SettingsView: View {
                 ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } }
             }
         }
+        .fullScreenCover(item: $preview) { id in
+            ThemePreview(id: id) {
+                themes.set(id)
+                dismiss()
+            } cancel: {
+                preview = nil
+            }
+        }
     }
 
     private func themeRow(_ id: ThemeID) -> some View {
@@ -50,5 +59,32 @@ struct SettingsView: View {
             Spacer()
             if themes.id == id { Image(systemName: "checkmark").foregroundStyle(.tint) }
         }
+    }
+}
+
+/// A theme on the speedometer screen, to try before choosing it.
+private struct ThemePreview: View {
+    var id: ThemeID
+    var ok: () -> Void
+    var cancel: () -> Void
+
+    var body: some View {
+        let palette = Palette.of(id)
+        ZStack {
+            Backdrop(mph: 60)
+            VStack(spacing: 12) {
+                TopBar(mode: .constant(.speed)) {}.allowsHitTesting(false)
+                Spacer(minLength: 0)
+                SpeedReadout(text: "60")
+                Spacer(minLength: 0)
+                HStack(spacing: 16) {
+                    Button("Cancel", action: cancel).buttonStyle(ThemedButtonStyle(prominent: false))
+                    Button("OK", action: ok).buttonStyle(ThemedButtonStyle())
+                }
+                .padding(.bottom, 24)
+            }
+        }
+        .environment(\.palette, palette)
+        .statusBarHidden()
     }
 }

@@ -35,8 +35,5 @@ INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = Launch Control uses GPS to s
 INFOPLIST_FILE = Info.plist
 INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES
 
-// The icons (make_icons.py): Outrun's is the app's, the other themes' are alternates that
-// ThemeStore switches to.
+// The icon (make_icons.py): Outrun's, whatever the theme.
 ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
-ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = AppIcon-lcd AppIcon-gauge AppIcon-nightDrive AppIcon-nixie AppIcon-crimson
-ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO

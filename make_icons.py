@@ -1,9 +1,7 @@
-"""Draws the app's icons: one per theme, in LaunchControl/Assets.xcassets.
+"""Draws the app's icon (AppIcon) in LaunchControl/Assets.xcassets.
 
-Each is a speedometer in the theme's colours, its needle on 60: a flat 1024-point square that
-iOS rounds itself. Outrun's is the app's icon (AppIcon); the others are alternate icons
-(AppIcon-<theme>) that ThemeStore switches to, listed in Base.xcconfig. Keep the colours in
-step with Theme.swift's palettes.
+A speedometer in Outrun's colours, its needle on 60: a flat 1024-point square that iOS rounds
+itself. Keep the colours in step with Theme.swift's palette.
 
     python3 make_icons.py   (needs Pillow)
 """
@@ -21,11 +19,6 @@ SIZE = 2048  # drawn at twice the size, then scaled down to smooth the edges
 # background (top, bottom), track, ticks, needle and the arc up to 60, glow
 THEMES = {
     "outrun": ((0x0B0221, 0x6B1460), 0x3A1660, 0xF7E8FF, 0xFF2E97, True),
-    "lcd": ((0x020605, 0x07120F), 0x0E2620, 0x2B8A6C, 0x4DFFC3, True),
-    "gauge": ((0x1E1F23, 0x050506), 0x2A2B30, 0xF2F2F2, 0xFF6A13, False),
-    "nightDrive": ((0x000000, 0x000000), 0x1E0505, 0x5E0B0B, 0xC21A1A, False),
-    "nixie": ((0x1E140D, 0x0A0604), 0x4A3526, 0xE9C9A6, 0xFFA04A, True),
-    "crimson": ((0x8E0E1C, 0x2A0207), 0x4A0610, 0xF4E9EA, 0xE6E9ED, False),
 }
 
 
@@ -34,7 +27,7 @@ def rgb(hex_: int, alpha: int = 255):
 
 
 def point(c, r, mph):
-    """Where a speed sits on the dial: 0-160 over 240 degrees, as in Dial.swift."""
+    """Where a speed sits on the dial: 0-160 over 240 degrees."""
     a = math.radians(210 - 240 * mph / 160)
     return (c + r * math.cos(a), c - r * math.sin(a))
 
@@ -85,7 +78,4 @@ if __name__ == "__main__":
     shutil.rmtree(OUT, ignore_errors=True)
     write(OUT, None)
     icon("AppIcon", PRIMARY)
-    for theme in THEMES:
-        if theme != PRIMARY:
-            icon(f"AppIcon-{theme}", theme)
     print(f"Wrote {OUT}")

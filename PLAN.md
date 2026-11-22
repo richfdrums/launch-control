@@ -10,7 +10,7 @@ An iPhone app for a 2020 Mazda MX-5 RF: a big, good-looking GPS speedometer and 
 - **Voice callout**: speaks the time when the run ends.
 - **HUD mirror mode**: flips the speedometer horizontally to read correctly when reflected in the windshield.
 - **Portrait only.**
-- **Themes**: six, each with its own app icon that the app switches to.
+- **Themes**: four, previewed before you choose one.
 
 ## Accuracy approach
 
@@ -24,16 +24,14 @@ iPhone GPS reports speed about **once per second**, which on its own gives about
 
 ## Themes
 
-Following stem-studio's pattern (`appleshared/Theme.swift`): a `ThemeID` enum, a `Palette` of colour tokens, a `Look` per theme with its own digit font and effects, a picker under a settings gear, and an alternate app icon per theme.
+Following stem-studio's pattern (`appleshared/Theme.swift`): a `ThemeID` enum, a `Palette` of colour tokens, a `Look` per theme with its own digit font and effects, and a picker under a settings gear that previews a theme before you choose it.
 
 | Theme | Feel |
 |---|---|
 | **Outrun** | Neon pink and cyan, glowing digits, a horizon grid |
-| **LCD Dash** | 80s seven-segment digital dashboard, with dim unlit segments behind the digits |
-| **Gauge** | Classic white-on-black analog dial, sweeping needle, number inside it |
 | **Night Drive** | Dim red on black, easy on the eyes at night |
-| **Nixie** | Orange glowing tube digits |
 | **Crimson** | Deep metallic red and silver |
+| **Midnight** | Crimson's silver on dark purple and black |
 
 ## Tech
 

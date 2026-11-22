@@ -4,15 +4,9 @@ An iPhone GPS speedometer and hands-free 0–60 timer, built for a 2020 Mazda MX
 
 ## Themes
 
-| Outrun | LCD Dash | Gauge |
-|:---:|:---:|:---:|
-| ![Outrun](docs/screenshots/outrun.png) | ![LCD Dash](docs/screenshots/lcd.png) | ![Gauge](docs/screenshots/gauge.png) |
-| **Night Drive** | **Nixie** | **Crimson** |
-| ![Night Drive](docs/screenshots/nightDrive.png) | ![Nixie](docs/screenshots/nixie.png) | ![Crimson](docs/screenshots/crimson.png) |
-
-The app's icon follows the theme:
-
-![The icons](docs/screenshots/icons.png)
+| Outrun | Night Drive | Crimson | Midnight |
+|:---:|:---:|:---:|:---:|
+| ![Outrun](docs/screenshots/outrun.png) | ![Night Drive](docs/screenshots/nightDrive.png) | ![Crimson](docs/screenshots/crimson.png) | ![Midnight](docs/screenshots/midnight.png) |
 
 ## What you need
 
@@ -31,7 +25,7 @@ The app's icon follows the theme:
 - **Speed:** the GPS speed in mph. The bars at top left show how good the GPS signal is. **HUD** flips the speed for the windshield to reflect: lay the phone flat on the dash, top edge toward the glass, and tap to leave.
 - **0–60:** mount the phone firmly, upright and facing you. Stop, tap **Arm**, and hold still until it says **Ready**. Then launch: the timer starts at the first movement and stops at 60 on its own. You also get the time with a 1-ft rollout (how magazines time it), 0–30 and peak g.
 - **Runs** lists every timed run, your best starred. Swipe to delete; press and hold to share a run's raw data. The raw data is also in the Files app: On My iPhone → Launch Control → Runs.
-- **Settings** (the gear): the theme, and whether it speaks.
+- **Settings** (the gear): the theme, and whether it speaks. Tap a theme to preview it, then **OK** to use it or **Cancel** to go back.
 
 Only time runs on a track or a closed road.
 
@@ -49,4 +43,4 @@ xcodebuild test -project LaunchControl.xcodeproj -scheme LaunchControl \
   -destination 'platform=iOS Simulator,name=iPhone 17'
 ```
 
-The app icons are drawn by `make_icons.py` (needs Pillow): `python3 make_icons.py`.
+The app icon is drawn by `make_icons.py` (needs Pillow): `python3 make_icons.py`.

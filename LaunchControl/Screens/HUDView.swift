@@ -19,8 +19,14 @@ struct HUDView: View {
         ZStack {
             Color.black.ignoresSafeArea()
             VStack(spacing: 0) {
-                Readout(text: speedText(location.mph)).frame(maxHeight: 420)
+                // A third of the full-screen size: a third of the width (less the padding) and
+                // of the height, as the readout fits whichever runs out first.
+                Readout(text: speedText(location.mph))
+                    .containerRelativeFrame(.horizontal) { w, _ in (w - 32) / 3 }
+                    .frame(maxHeight: 140)
                 Text("MPH").font(p.font(40)).tracking(8).foregroundStyle(p.dim)
+                Text(headingText(location.course)).font(p.font(28)).tracking(4).foregroundStyle(p.dim)
+                    .monospacedDigit().padding(.top, 12)
             }
             .padding()
             .scaleEffect(x: 1, y: -1)
@@ -48,5 +54,13 @@ struct HUDView: View {
         .onDisappear {
             if let brightness { screen?.brightness = brightness }
         }
+    }
+
+    /// The course as a compass point and degrees, "SW 225°", or "--" before the car has moved.
+    private func headingText(_ course: Double?) -> String {
+        guard let course else { return "--" }
+        let points = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]
+        let degrees = Int(course.rounded()) % 360
+        return "\(points[Int((course / 45).rounded()) % 8]) \(degrees)°"
     }
 }

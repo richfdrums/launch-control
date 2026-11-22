@@ -69,7 +69,7 @@ struct RootView: View {
 }
 
 /// The GPS signal, the switch between the speedometer and the timer, and settings.
-private struct TopBar: View {
+struct TopBar: View {
     @Binding var mode: Mode
     var showSettings: () -> Void
     @Environment(Location.self) private var location

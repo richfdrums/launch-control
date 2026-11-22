@@ -1,7 +1,6 @@
 import SwiftUI
 
-/// The screen's background in the theme: Outrun's sunset and grid, LCD Dash's scanlines,
-/// the others' gradients.
+/// The screen's background in the theme: Outrun's sunset and grid, the others' gradients.
 struct Backdrop: View {
     var mph: Double = 0  // Outrun's grid scrolls with it
     @Environment(\.palette) private var p
@@ -13,13 +12,7 @@ struct Backdrop: View {
             } else {
                 LinearGradient(colors: p.background, startPoint: .top, endPoint: .bottom)
             }
-            switch p.look {
-            case .neon: OutrunScene(mph: mph)
-            case .segments: Scanlines()
-            case .dial, .nixie:
-                RadialGradient(colors: [.clear, .black.opacity(0.55)], center: .center, startRadius: 120, endRadius: 600)
-            case .plain, .metal: EmptyView()
-            }
+            if p.look == .neon { OutrunScene(mph: mph) }
         }
         .ignoresSafeArea()
     }
@@ -91,21 +84,5 @@ private struct OutrunScene: View {
                            with: .color(Color(hex: 0x2DE2E6)), lineWidth: 2)
             }
         }
-    }
-}
-
-/// An LCD panel's fine horizontal lines.
-private struct Scanlines: View {
-    var body: some View {
-        Canvas { ctx, size in
-            var lines = Path(), y: CGFloat = 0
-            while y < size.height {
-                lines.addRect(CGRect(x: 0, y: y, width: size.width, height: 1))
-                y += 3
-            }
-            ctx.fill(lines, with: .color(.black.opacity(0.35)))
-        }
-        .overlay(RadialGradient(colors: [Color(hex: 0x4DFFC3).opacity(0.06), .clear], center: .center,
-                                startRadius: 0, endRadius: 500))
     }
 }

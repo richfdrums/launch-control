@@ -6,7 +6,6 @@ struct ThemedButtonStyle: ButtonStyle {
     @Environment(\.palette) private var p
 
     func makeBody(configuration: Configuration) -> some View {
-        let shape = p.look == .segments ? AnyShape(RoundedRectangle(cornerRadius: 4)) : AnyShape(Capsule())
         configuration.label
             .font(p.font(prominent ? 26 : 16))
             .tracking(prominent ? 4 : 1.5)
@@ -14,7 +13,7 @@ struct ThemedButtonStyle: ButtonStyle {
             .padding(.vertical, prominent ? 18 : 10)
             .foregroundStyle(prominent ? p.onAccent : p.accent)
             .background {
-                if prominent { shape.fill(p.accent) } else { shape.stroke(p.accent, lineWidth: 1.5) }
+                if prominent { Capsule().fill(p.accent) } else { Capsule().stroke(p.accent, lineWidth: 1.5) }
             }
             .shadow(color: (p.glow ?? .clear).opacity(prominent ? 0.7 : 0.35), radius: 12)
             .opacity(configuration.isPressed ? 0.7 : 1)

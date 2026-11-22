@@ -8,15 +8,7 @@ struct SpeedometerView: View {
     var body: some View {
         VStack(spacing: 12) {
             Spacer(minLength: 0)
-            if p.look == .dial {
-                Dial(mph: location.mph).padding(.horizontal, 12)
-            } else {
-                Readout(text: speedText(location.mph, p.look))
-                    .frame(maxHeight: 300)
-                    .padding(.horizontal)
-                Text("MPH").font(p.font(28)).tracking(8).foregroundStyle(p.dim)
-                    .shadow(color: .black.opacity(0.8), radius: 4)  // legible over Outrun's sun
-            }
+            SpeedReadout(text: speedText(location.mph))
             Spacer(minLength: 0)
             if location.denied {
                 Text("Location is off for Launch Control. Turn it on in Settings → Privacy & Security → Location Services.")
@@ -31,10 +23,21 @@ struct SpeedometerView: View {
     }
 }
 
-/// The speed as a readout shows it: "--" without GPS; three places for the displays that show
-/// their unlit ones.
-func speedText(_ mph: Double?, _ look: Look) -> String {
-    let text = mph.map { String(Int($0.rounded())) } ?? "--"
-    guard look == .segments || look == .nixie else { return text }
-    return String(repeating: " ", count: max(0, 3 - text.count)) + text
+/// The speed and "MPH" under it, as the speedometer (and a theme's preview) shows it.
+struct SpeedReadout: View {
+    var text: String
+    @Environment(\.palette) private var p
+
+    var body: some View {
+        Readout(text: text)
+            .frame(maxHeight: 300)
+            .padding(.horizontal)
+        Text("MPH").font(p.font(28)).tracking(8).foregroundStyle(p.dim)
+            .shadow(color: .black.opacity(0.8), radius: 4)  // legible over Outrun's sun
+    }
+}
+
+/// The speed as a readout shows it: "--" without GPS.
+func speedText(_ mph: Double?) -> String {
+    mph.map { String(Int($0.rounded())) } ?? "--"
 }

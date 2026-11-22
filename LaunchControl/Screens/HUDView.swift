@@ -19,7 +19,7 @@ struct HUDView: View {
         ZStack {
             Color.black.ignoresSafeArea()
             VStack(spacing: 0) {
-                Readout(text: speedText(location.mph, p.look == .dial ? .plain : p.look)).frame(maxHeight: 420)
+                Readout(text: speedText(location.mph)).frame(maxHeight: 420)
                 Text("MPH").font(p.font(40)).tracking(8).foregroundStyle(p.dim)
             }
             .padding()

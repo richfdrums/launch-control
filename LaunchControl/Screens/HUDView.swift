@@ -30,6 +30,9 @@ struct HUDView: View {
             }
             .padding()
             .scaleEffect(x: 1, y: -1)
+            // At the screen's top edge, the one by the windshield, so the reflection sits as low
+            // as it can, just above the dash.
+            .frame(maxHeight: .infinity, alignment: .top)
             if showHint {
                 VStack {
                     Spacer()

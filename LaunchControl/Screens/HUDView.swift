@@ -24,9 +24,10 @@ struct HUDView: View {
                 Readout(text: speedText(location.mph))
                     .containerRelativeFrame(.horizontal) { w, _ in (w - 32) / 3 }
                     .frame(maxHeight: 140)
-                Text("MPH").font(p.font(14)).tracking(8).foregroundStyle(p.dim)
-                Text(headingText(location.course)).font(p.font(20)).tracking(4).foregroundStyle(p.dim)
-                    .monospacedDigit().padding(.top, 12)
+                // Only the number shows. These hold the space the "MPH" label and the heading had,
+                // so the number stays where it was.
+                Text("MPH").font(p.font(14)).hidden()
+                Text("N").font(p.font(20)).padding(.top, 12).hidden()
             }
             .padding()
             .scaleEffect(x: 1, y: -1)
@@ -57,13 +58,5 @@ struct HUDView: View {
         .onDisappear {
             if let brightness { screen?.brightness = brightness }
         }
-    }
-
-    /// The course as a compass point and degrees, "SW 225°", or "--" before the car has moved.
-    private func headingText(_ course: Double?) -> String {
-        guard let course else { return "--" }
-        let points = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]
-        let degrees = Int(course.rounded()) % 360
-        return "\(points[Int((course / 45).rounded()) % 8]) \(degrees)°"
     }
 }

@@ -11,10 +11,6 @@ enum Signal {
 final class Location: NSObject, CLLocationManagerDelegate {
     private(set) var fix: GPSFix?
     private(set) var denied = false
-    /// The direction of travel, in degrees clockwise from true north, from the GPS. It keeps the
-    /// last good value while the car is stopped (the GPS can't tell a direction then), and is nil
-    /// until the car has moved.
-    private(set) var course: Double?
     @ObservationIgnored var onFix: ((GPSFix) -> Void)?
     @ObservationIgnored private let manager = CLLocationManager()
 
@@ -53,10 +49,7 @@ final class Location: NSObject, CLLocationManagerDelegate {
             GPSFix(t: $0.timestamp.timeIntervalSince1970, speed: $0.speed, speedAccuracy: $0.speedAccuracy,
                    horizontalAccuracy: $0.horizontalAccuracy)
         }
-        // Under 1 mph the course is noise, as the speed is.
-        let course = locations.last(where: { $0.course >= 0 && $0.courseAccuracy >= 0 && $0.speed >= Units.mph })?.course
         MainActor.assumeIsolated {
-            if let course { self.course = course }
             for f in fixes {
                 fix = f
                 onFix?(f)
